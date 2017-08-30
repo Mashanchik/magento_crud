@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <encomage_quotes_index_index>
+        <reference name="content">
+            <block type="encomage_quotes/content" name="quotes.all" />
+        </reference>
+    </encomage_quotes_index_index>
+    
+    <encomage_quotes_index_view>
+        <reference name="content">
+            <block type="encomage_quotes/quote_content" name="quote.item" />
+        </reference>
+    </encomage_quotes_index_view>
+</layout>
