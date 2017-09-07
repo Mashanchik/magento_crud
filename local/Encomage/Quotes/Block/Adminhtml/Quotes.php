@@ -3,10 +3,10 @@ class Encomage_Quotes_Block_Adminhtml_Quotes extends Mage_Adminhtml_Block_Widget
 {
     protected function _construct()
     {
-        $this->_addButtonLabel = Mage::helper('encomage_quotes')->__('Add New Quote');
+        $this->_addButtonLabel = $this->__('Add New Quote');
  
         $this->_blockGroup = 'encomage_quotes';
         $this->_controller = 'adminhtml_quotes';
-        $this->_headerText = Mage::helper('encomage_quotes')->__('Quotes');
+        $this->_headerText = $this->__('Quotes');
     }
 }

@@ -12,16 +12,15 @@ class Encomage_Quotes_Adminhtml_QuotesController extends Mage_Adminhtml_Controll
     
     public function newAction()
     {
-        $this->_title($this->__('Add new quote'));
-        $this->loadLayout();
-        $this->_setActiveMenu('encomage_quotes');
-        $this->renderLayout();
+        $this->_forward('edit');
     }
     
     public function editAction()
     {
         $this->_title($this->__('Edit quote'));
-
+        $quote_id = (int)$this->getRequest()->getParam('id', null);
+        $quote = Mage::getModel('encomage_quotes/quote')->load($quote_id);
+        Mage::register('current_quote', $quote);
         $this->loadLayout();
         $this->_setActiveMenu('encomage_quotes');
         $this->renderLayout();

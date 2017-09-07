@@ -1,3 +1,17 @@
 <?php $quote = $this->getQuote() ?>
-<h1><?php echo Mage::helper('encomage_quotes')->__('View quote "%s"', $quote->getName()) ?></h1>
-<p><?php echo $quote->getDscr() ?></p>
+<?php if(Mage::getSingleton('customer/session')->getCustomer()->getId() == $quote->getUserid()):?>
+    <h1><?php echo $this->__('View quote "%s"', $quote->getName()) ?></h1>
+    <p><?php echo $quote->getDscr() ?></p>
+    <div class="buttons-set">
+        <p class="back-link"><a class="back-link" href="<?php echo $this->getBackUrl() ?>"><small>&laquo;</small>Back</a></p>
+        <a href="<?php echo $this->getEditUrl($quote->getId()) ?>" class="button" title="Edit"><span><span><?php echo $this->__('Edit')?></span></span></a>
+        <a href="<?php echo $this->getDeleteUrl($quote->getId()) ?>" class="button" title="Delete"><span><span><?php echo $this->__('Delete')?></span></span></a>
+    </div>
+<?php else : ?>
+    <h1><?php echo $this->__('View quote "%s"', $quote->getName()) ?></h1>
+    <p><?php echo $quote->getDscr() ?></p>
+
+    <div class="buttons-set">
+        <p class="back-link"><a class="back-link" href="<?php echo $this->getBackUrl() ?>"><small>&laquo;</small>Back</a></p>
+    </div>
+<?php endif ?>

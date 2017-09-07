@@ -6,23 +6,15 @@ class Encomage_Quotes_Block_Adminhtml_Edit extends Mage_Adminhtml_Block_Widget_F
         $this->_blockGroup = 'encomage_quotes';
         $this->_mode = 'edit';
         $this->_controller = 'adminhtml';
-        
-        $quote_id = (int)$this->getRequest()->getParam($this->_objectId);
-        if(!$quote_id) {
-        //    Mage::throwException($this->__('Quote with this id does not exists'));
-        }
-        $quote = Mage::getModel('encomage_quotes/quote')->load($quote_id);
-        Mage::register('current_quote', $quote);
-        $this->_removeButton('reset');
     }
  
     public function getHeaderText()
     {
         $quote = Mage::registry('current_quote');
         if ($quote->getId()) { 
-            return Mage::helper('encomage_quotes')->__("Edit Quote '%s'", $this->escapeHtml($quote->getName()));
+            return $this->__("Edit Quote '%s'", $this->escapeHtml($quote->getName()));
         } else {
-            return Mage::helper('encomage_quotes')->__("Add new Quote");
+            return $this->__("Add new Quote");
         }
     }
 }

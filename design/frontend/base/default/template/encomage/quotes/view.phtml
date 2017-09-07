@@ -1,6 +1,18 @@
+<?php if(!Mage::getSingleton('customer/session')->getCustomer()->getId()):?>
+    <h3>To add, view, delete and edit quotes, log in to the site</h3>
+    <?php foreach ($this->getCollection() as $quote): ?>
+        <div class="quote-item">
+            <h4><?php echo $quote->getName() ?></h4>
+        </div>
+    <?php endforeach ?>
+<?php else : ?>
 <?php foreach ($this->getCollection() as $quote): ?>
-<div class="quote-item">
-    <h4><a href="<?php echo $this->getRowUrl($quote) ?>"><?php echo $quote->getName() ?></a></h4>
-    <p><?php echo $quote->getDscr() ?></p>
-</div>
+    <div class="quote-item">
+        <h4><a href="<?php echo $this->getRowUrl($quote) ?>"><?php echo $quote->getName() ?></a></h4>
+        <p><?php echo $quote->getDscr() ?></p>
+    </div>
 <?php endforeach ?>
+    <div class="buttons-set">
+        <a href="<?php echo $this->getSaveUrl() ?>" class="button" title="Add New Quote"><span><span><?php echo $this->__('Add New Quote')?></span></span></a>
+    </div>
+<?php endif ?>

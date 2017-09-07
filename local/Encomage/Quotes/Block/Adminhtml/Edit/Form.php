@@ -6,7 +6,7 @@ class Encomage_Quotes_Block_Adminhtml_Edit_Form extends Mage_Adminhtml_Block_Wid
         $quote = Mage::registry('current_quote');
         $form = new Varien_Data_Form();
         $fieldset = $form->addFieldset('edit_quote', array(
-            'legend' => Mage::helper('encomage_quotes')->__('Quote Details')
+            'legend' => $this->__('Quote Details')
         ));
 
         if ($quote->getId()) {
@@ -18,16 +18,16 @@ class Encomage_Quotes_Block_Adminhtml_Edit_Form extends Mage_Adminhtml_Block_Wid
  
         $fieldset->addField('name', 'text', array(
             'name'      => 'name',
-            'title'     => Mage::helper('encomage_quotes')->__('Title'),
-            'label'     => Mage::helper('encomage_quotes')->__('Title'),
+            'title'     => $this->__('Title'),
+            'label'     => $this->__('Title'),
             'maxlength' => '250',
             'required'  => true,
         ));
         
         $fieldset->addField('dscr', 'textarea', array(
             'name'      => 'dscr',
-            'title'     => Mage::helper('encomage_quotes')->__('Contents'),
-            'label'     => Mage::helper('encomage_quotes')->__('Contents'),
+            'title'     => $this->__('Contents'),
+            'label'     => $this->__('Contents'),
             'style'     => 'width: 98%; height: 200px;',
             'required'  => true,
         ));

@@ -12,9 +12,14 @@ class Encomage_Quotes_Block_Content extends Mage_Core_Block_Template
             'id' => $quote->getId()
         ));
     }
+
+    public function getSaveUrl()
+    {
+        return $this->getUrl('*/*/form', null);
+    }
     
     public function getCollection()
     {
-        return Mage::getModel('encomage_quotes/quote')->getCollection();
+        return Mage::getResourceModel('encomage_quotes/quote_collection');
     }
 }

@@ -5,6 +5,18 @@
             <block type="encomage_quotes/content" name="quotes.all" />
         </reference>
     </encomage_quotes_index_index>
+
+    <encomage_quotes_index_form>
+        <reference name="content">
+            <block type="encomage_quotes/form" name="quotes.form" />
+        </reference>
+    </encomage_quotes_index_form>
+
+    <encomage_quotes_index_edit>
+        <reference name="content">
+            <block type="encomage_quotes/edit" name="quotes.edit" />
+        </reference>
+    </encomage_quotes_index_edit>
     
     <encomage_quotes_index_view>
         <reference name="content">

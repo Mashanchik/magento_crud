@@ -14,7 +14,7 @@ class Encomage_Quotes_Block_Adminhtml_Quotes_Grid extends Mage_Adminhtml_Block_W
  
     protected function _prepareCollection()
     {
-        $collection = Mage::getModel('encomage_quotes/quote')->getCollection();
+        $collection = Mage::getResourceModel('encomage_quotes/quote_collection');
         $this->setCollection($collection);
  
         return parent::_prepareCollection();
@@ -23,7 +23,7 @@ class Encomage_Quotes_Block_Adminhtml_Quotes_Grid extends Mage_Adminhtml_Block_W
     protected function _prepareColumns()
     { 
         $this->addColumn('id', array(
-            'header'        => Mage::helper('encomage_quotes')->__('ID'),
+            'header'        => $this->__('ID'),
             'align'         => 'right',
             'width'         => '20px',
             'filter_index'  => 'id',
@@ -31,7 +31,7 @@ class Encomage_Quotes_Block_Adminhtml_Quotes_Grid extends Mage_Adminhtml_Block_W
         ));
  
         $this->addColumn('name', array(
-            'header'        => Mage::helper('encomage_quotes')->__('Title'),
+            'header'        => $this->__('Title'),
             'align'         => 'left',
             'filter_index'  => 'name',
             'index'         => 'name',
@@ -41,13 +41,13 @@ class Encomage_Quotes_Block_Adminhtml_Quotes_Grid extends Mage_Adminhtml_Block_W
         ));
         
         $this->addColumn('action', array(
-            'header'    => Mage::helper('encomage_quotes')->__('Action'),
+            'header'    => $this->__('Action'),
             'width'     => '50px',
             'type'      => 'action',
             'getter'     => 'getId',
             'actions'   => array(
                 array(
-                    'caption' => Mage::helper('encomage_quotes')->__('Edit'),
+                    'caption' => $this->__('Edit'),
                     'url'     => array(
                         'base'=>'*/*/edit',
                     ),
@@ -71,6 +71,6 @@ class Encomage_Quotes_Block_Adminhtml_Quotes_Grid extends Mage_Adminhtml_Block_W
     
     public function getGridUrl()
     {
-        return $this->getUrl('*/*/grid', array('_current'=>true));
+        return $this->getUrl('*/*/grid');
     }
 }
